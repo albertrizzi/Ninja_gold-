@@ -1,0 +1,11 @@
+#box{
+    overflow: scroll;
+    height: 200px;
+}
+
+#wrapper{
+    height: 700px;
+    width: 800px;
+    padding: 50px;
+    background-image: linear-gradient(300deg, purple, blue);
+}

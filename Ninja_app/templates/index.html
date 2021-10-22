@@ -1,0 +1,47 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="{%  static  'css/style.css'  %}">
+    <title>Ninja Gold</title>
+</head>
+<body>
+    <div id = "wrapper">
+    <h1>Welcome Ninja</h1>
+    <h3>Your gold: {{request.session.gold}}</h3>
+    
+    <form action="/process_money" method="post">
+        {% csrf_token %}
+        <h1>Farm</h1>
+        <input type="hidden" name="location" value="farm">
+        <button type="submit">Find Gold!</button>
+    </form>
+    <form action="/process_money" method="post">
+        {% csrf_token %}
+        <h1>Cave</h1>
+        <input type="hidden" name="location" value="cave">
+        <button type="submit">Find Gold!</button>
+    </form>
+    <form action="/process_money" method="post">
+        {% csrf_token %}
+        <h1>House</h1>
+        <input type="hidden" name="location" value="house">
+        <button type="submit">Find Gold!</button>
+    </form>
+    <form action="/process_money" method="post">
+        {% csrf_token %}
+        <h1>Casino</h1>
+        <input type="hidden" name="location" value="casino">
+        <button type="submit">Find Gold!</button>
+    </form>
+    <div id = "box">
+        {% for activity in request.session.activities reversed %}
+            <p>{{activity}}</p>
+        {% endfor %}
+    </div>
+    </form>
+</body>
+</html>
